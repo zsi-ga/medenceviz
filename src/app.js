@@ -24,6 +24,7 @@ window.addEventListener('load', ()=> {
 });
 
 function init(){
+
         if(doc.calcButton){
             doc.calcButton.addEventListener('click', ()=>{
                
@@ -33,23 +34,26 @@ function init(){
           }
 
 function startCalc(){
+
     let height = doc.heightInput.value;
     let width = doc.widthInput.value;
     let length = doc.lengthInput.value;
+
     console.log("Magasság nagyobb mint 0: ", checkInput(height));
     console.log("Szélesség nagyobb mint 0: ", checkInput(width));
     console.log("Hosszúság nagyobb mint 0: ", checkInput(length));
+
     if (checkInput(height) && checkInput(width) && checkInput(length)){
         state.volume = calcVolume(height, width, length);
         doc.volumeInput.value = state.volume;
+        
     } else {
         doc.volumeInput.value = "Hiba az inputban!"
     }
 }
-
 function calcVolume(height, width, length){
     return (height-0.1) * width * length;
-}
+  }
 function checkInput(input){
     let inputStr = String(input);
     let inputNum = Number(input);
@@ -60,5 +64,7 @@ function checkInput(input){
             return false;
         }  
     } else {return false;
+    
+
     }
 }
